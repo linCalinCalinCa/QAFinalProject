@@ -10,14 +10,15 @@ import java.nio.file.Paths;
 public class BasePage {
     protected WebDriver driver;
     public String baseURL = "https://www.saucedemo.com/";
+
     public BasePage() {
 
     }
-    public BasePage(WebDriver driver){
+
+    public BasePage(WebDriver driver) {
         this.driver = driver;
     }
 
-//   @BeforeClass
     public void setUp() {
         String driverPath = Paths.get("src/main", "resources/", "chromedriver.exe").toString();
         System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
@@ -28,8 +29,8 @@ public class BasePage {
 
     }
 
-
     @AfterClass
-    public void tearDown() {driver.close();
+    public void tearDown() {
+        driver.close();
     }
 }

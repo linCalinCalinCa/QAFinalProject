@@ -1,16 +1,15 @@
 package testCasess;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.BasePage;
-import pages.LoginFunctionalityPage;
 import pages.ShoppingCartFunctionalityPage;
 
 public class ShoppingCartFunctionalityTest extends BasePage {
+    public static final String YOUR_CART_PATH = "/html/body/div/div/div/div[1]/div[2]/span";
     private ShoppingCartFunctionalityPage shoppingCartFunctionalityTest;
 
     @BeforeClass
@@ -23,21 +22,21 @@ public class ShoppingCartFunctionalityTest extends BasePage {
     }
 
     @Test
-    public void checkIfTheShoppingCartButtonIsDisplayed(){
+    public void checkIfTheShoppingCartButtonIsDisplayed() {
         WebElement shoppingCart = driver.findElement(By.id("shopping_cart_container"));
         Assert.assertTrue(shoppingCart.isDisplayed());
     }
 
     @Test
-    public void checkTheFunctionalityOfTheShoppingCartButton(){
+    public void checkTheFunctionalityOfTheShoppingCartButton() {
         shoppingCartFunctionalityTest.clickOnTheShoppingCart();
-        WebElement yourCart = driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div[2]/span"));
+        WebElement yourCart = driver.findElement(By.xpath(YOUR_CART_PATH));
         Assert.assertTrue(yourCart.isDisplayed());
         driver.navigate().back();
     }
 
     @Test
-    public void checkTheFunctionalityOfTheShoppingCart(){
+    public void checkTheFunctionalityOfTheShoppingCart() {
         WebElement addToCart = driver.findElement(By.id("add-to-cart-sauce-labs-backpack"));
         addToCart.click();
         shoppingCartFunctionalityTest.clickOnTheShoppingCart();
@@ -49,15 +48,15 @@ public class ShoppingCartFunctionalityTest extends BasePage {
     }
 
     @Test
-    public void checkTheFunctionalityOfContinueShoppingButtonFromCart(){
+    public void checkTheFunctionalityOfContinueShoppingButtonFromCart() {
         shoppingCartFunctionalityTest.clickOnTheShoppingCart();
         shoppingCartFunctionalityTest.clickOnContinueShopping();
-        WebElement products = driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div[2]/span"));
+        WebElement products = driver.findElement(By.xpath(YOUR_CART_PATH));
         Assert.assertTrue(products.isDisplayed());
     }
 
     @Test
-    public void checkTheFunctionalityOfTheRemoveButtonFromCart(){
+    public void checkTheFunctionalityOfTheRemoveButtonFromCart() {
         WebElement addToCart = driver.findElement(By.id("add-to-cart-sauce-labs-backpack"));
         addToCart.click();
         shoppingCartFunctionalityTest.clickOnTheShoppingCart();
@@ -68,13 +67,12 @@ public class ShoppingCartFunctionalityTest extends BasePage {
     }
 
     @Test
-    public void checkTheFunctionalityOfTheCheckoutButtonFromCart(){
+    public void checkTheFunctionalityOfTheCheckoutButtonFromCart() {
         shoppingCartFunctionalityTest.clickOnTheShoppingCart();
         shoppingCartFunctionalityTest.clickOnCheckout();
-        WebElement checkoutYourInformations  = driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div[2]/span"));
+        WebElement checkoutYourInformations = driver.findElement(By.xpath(YOUR_CART_PATH));
         Assert.assertTrue(checkoutYourInformations.isDisplayed());
         driver.navigate().back();
         driver.navigate().back();
     }
-
 }

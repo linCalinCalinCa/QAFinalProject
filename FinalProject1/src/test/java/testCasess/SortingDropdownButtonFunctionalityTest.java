@@ -1,7 +1,6 @@
 package testCasess;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -25,10 +24,8 @@ public class SortingDropdownButtonFunctionalityTest extends BasePage {
         sortingDropdownButtonFunctionalityTest.clickOnTheLoginButton();
     }
 
-
-
     @Test
-    public void testSortingAZ(){
+    public void testSortingAZ() {
         //website-u este deja sortat de la A la Z
         sortingDropdownButtonFunctionalityTest.clickOnTheDropdownListButton();
         sortingDropdownButtonFunctionalityTest.clickOnTheSecondItemInDropdownListButton();
@@ -36,7 +33,7 @@ public class SortingDropdownButtonFunctionalityTest extends BasePage {
 
         List<WebElement> childs = driver.findElements(By.cssSelector(".inventory_list .inventory_item"));
         List<String> originalInventoryNameList = new ArrayList<>();
-        for (int i=0; i<childs.size(); i++){
+        for (int i = 0; i < childs.size(); i++) {
             String inventoryName = childs.get(i).findElement(By.cssSelector(".inventory_item_name")).getText();
             originalInventoryNameList.add(inventoryName);
         }
@@ -46,14 +43,14 @@ public class SortingDropdownButtonFunctionalityTest extends BasePage {
     }
 
     @Test
-    public void testSortingZA(){
+    public void testSortingZA() {
         sortingDropdownButtonFunctionalityTest.clickOnTheDropdownListButton();
         sortingDropdownButtonFunctionalityTest.clickOnTheSecondItemInDropdownListButton();
 
         List<WebElement> childs = driver.findElements(By.cssSelector(".inventory_list .inventory_item"));
         List<String> originalInventoryNameList = new ArrayList<>();
 
-        for (int i=0; i<childs.size(); i++){
+        for (int i = 0; i < childs.size(); i++) {
             String inventoryName = childs.get(i).findElement(By.cssSelector(".inventory_item_name")).getText();
             originalInventoryNameList.add(inventoryName);
 

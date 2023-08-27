@@ -25,12 +25,12 @@ public class BurgerButtonFunctionalityTest extends BasePage {
     }
 
     @BeforeMethod
-    public void goToHomePage(){
+    public void goToHomePage() {
         driver.navigate().refresh();
     }
 
     @Test
-    public void checkIfTheBurgerButtonIsDisplayed(){
+    public void checkIfTheBurgerButtonIsDisplayed() {
         WebElement burgerButton = driver.findElement(By.id("react-burger-menu-btn"));
         Assert.assertTrue(burgerButton.isDisplayed());
     }
@@ -69,8 +69,8 @@ public class BurgerButtonFunctionalityTest extends BasePage {
         wait.until(ExpectedConditions.urlToBe("https://saucelabs.com/"));
         if (driver.getCurrentUrl().equals("https://saucelabs.com/")) {
             System.out.println("Redirect successful.");
-        }
-        else {System.out.println("Redirect failed.");
+        } else {
+            System.out.println("Redirect failed.");
         }
         driver.navigate().back();
     }
@@ -98,10 +98,8 @@ public class BurgerButtonFunctionalityTest extends BasePage {
         String addToCartButtonText = addToCartButton.getText();
         if (addToCartButtonText.equals("Add to cart")) {
             System.out.println("Fourth item in the burger button menu is working");
+        } else {
+            System.out.println("Fourth item in the burger button menu is not working");
         }
-        else {System.out.println("Fourth item in the burger button menu is not working");
-        }
-
-
     }
 }

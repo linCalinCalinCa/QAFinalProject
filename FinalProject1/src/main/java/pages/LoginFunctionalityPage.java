@@ -9,34 +9,37 @@ public class LoginFunctionalityPage extends BasePage {
     }
 
     By usernameBox = By.id("user-name");
-    public void insertFirstValidUsername(){
+    public void insertFirstValidUsername() {
         driver.findElement(usernameBox).sendKeys("standard_user");
     }
-    public void insertSecondValidUsername(){
+
+    public void insertSecondValidUsername() {
         driver.findElement(usernameBox).sendKeys("locked_out_user");
     }
-    public void insertThirdValidUsername(){
+
+    public void insertThirdValidUsername() {
         driver.findElement(usernameBox).sendKeys("problem_user");
     }
-    public void insertFourthValidUsername(){
+
+    public void insertFourthValidUsername() {
         driver.findElement(usernameBox).sendKeys("performance_glitch_user");
     }
 
-    public void insertInvalidUsername(){
-
+    public void insertInvalidUsername() {
         driver.findElement(usernameBox).sendKeys("user007");
     }
 
     By passwordBox = By.id("password");
-    public void insertValidPassword(){
+    public void insertValidPassword() {
         driver.findElement(passwordBox).sendKeys("secret_sauce");
     }
-    public void insertInvalidPassword(){
+
+    public void insertInvalidPassword() {
         driver.findElement(passwordBox).sendKeys("notgoodman");
     }
 
     By loginButton = By.id("login-button");
-    public void clickOnTheLoginButton(){
+    public void clickOnTheLoginButton() {
         driver.findElement(loginButton).click();
     }
 
@@ -45,14 +48,5 @@ public class LoginFunctionalityPage extends BasePage {
         Thread.sleep(500);
         driver.findElement(By.id("logout_sidebar_link")).click();
     }
-
-
-
-
-
-
-
-
-
 }
 
