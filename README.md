@@ -8,8 +8,3 @@ Tasks:
       -https://www.saucedemo.com/
       -https://ecommerce-playground.lambdatest.io/
 I chose as my testing website "https://www.saucedemo.com/"
-
-   2.Write a short description in Romanian language
-(word format).
-
-   3.Upload your project on github.
